@@ -21,7 +21,9 @@ require('./data/db')
 
 
 // Routes
-app.use("/home", home);
+app.get('/', (req, res) => {
+    res.send('Hello')
+  });
 
 
 
