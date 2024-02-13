@@ -162,14 +162,16 @@ app.post('/events', async (req, res) => {
         return res.status(404).json({ error: 'Volunteer not found' });
       }
   
-      await Volunteer.findByIdAndRemove(volunteerId);
+      await Volunteer.deleteOne({ _id: volunteerId });
   
-      res.status(200).json({ success: true, data: volunteer, message: 'Volunteer deleted successfully' });
+      res.status(200).json({ success: true, message: 'Volunteer deleted successfully' });
     } catch (error) {
       console.error('Error deleting volunteer:', error.message);
       res.status(500).json({ error: 'Error deleting volunteer' });
     }
-  });
+});
+
+
   
 
   
