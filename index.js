@@ -164,12 +164,13 @@ app.post('/events', async (req, res) => {
   
       await Volunteer.findByIdAndRemove(volunteerId);
   
-      res.status(200).json({ success: true, data: volunteer, message: 'Volunteer deleted successfully' });
+      res.status(200).json({ success: true, message: 'Volunteer deleted successfully' });
     } catch (error) {
       console.error('Error deleting volunteer:', error.message);
       res.status(500).json({ error: 'Error deleting volunteer' });
     }
-  });
+});
+
   
   // Update a volunteer
   app.post('/volunteers/:id', async (req, res) => {
