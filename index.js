@@ -73,7 +73,8 @@ app.post('/events', async (req, res) => {
         return res.status(404).json({ error: 'Event not found' });
       }
   
-      await Event.findByIdAndRemove(eventId);
+      await Event.deleteOne({_id: eventId});
+      
   
       res.status(200).json({ success: true, data: event, message: 'Event deleted successfully' });
     } catch (error) {
