@@ -2,8 +2,7 @@
 const express = require("express");
 const home = require("./routes/home");
 
-const mongoose = require('mongoose');
-const fs = require('fs');
+
 
 // Middlewares
 const app = express();
